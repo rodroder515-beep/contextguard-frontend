@@ -1,0 +1,6 @@
+{
+  "name": "ContextGuard",
+  "description": "A research-driven security layer for AI workflows that evaluates sensitive information, task relevance, and destination permissions before data leaves an AI workflow.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
