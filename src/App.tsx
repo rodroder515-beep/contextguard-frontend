@@ -18,6 +18,7 @@ import { ResearchNotesSection } from './components/ResearchNotesSection';
 import { MethodologyTracksSection } from './components/MethodologyTracksSection';
 import { DarkTerminalSection } from './components/DarkTerminalSection';
 import { Footer } from './components/Footer';
+import { MvpDemoPresentationPlayer } from './components/MvpDemoPresentationPlayer';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -27,6 +28,7 @@ export default function App() {
   const [activeTab, setActiveTab] = useState<ActiveTab>('overview');
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [heroScrollProgress, setHeroScrollProgress] = useState<number>(0);
+  const [isMvpDemoOpen, setIsMvpDemoOpen] = useState<boolean>(false);
   const lenisRef = useRef<Lenis | null>(null);
 
   // Initialize Lenis smooth scroll with proper React lifecycle, reduced-motion support, and cleanup
@@ -207,6 +209,8 @@ export default function App() {
         isScrolled={isScrolled}
         onJumpToDemo={() => scrollToElement('interactive-demo')}
         onJumpToArchitecture={() => scrollToElement('architecture-stack')}
+        onOpenMvpDemo={() => setIsMvpDemoOpen(true)}
+        isMvpDemoActive={isMvpDemoOpen}
       />
 
       {/* Main Content Router */}
@@ -218,10 +222,13 @@ export default function App() {
               scrollProgress={heroScrollProgress}
               onEvaluateClick={() => scrollToElement('interactive-demo')}
               onExploreResearchClick={() => scrollToElement('research-notes')}
+              onOpenMvpDemo={() => setIsMvpDemoOpen(true)}
             />
 
             {/* 2. The Problem: Briefing Player, Pull-Quote, Divergence Graph & Coral Drop-Cap (00:07-00:11) */}
-            <ProblemSection />
+            <ProblemSection
+              onOpenMvpDemo={() => setIsMvpDemoOpen(true)}
+            />
 
             {/* 3. The Protection Workflow: "A new layer of the stack" Isometric 3D Stack (00:11-00:19) */}
             <StackLayerSection />
@@ -281,6 +288,14 @@ export default function App() {
           scrollToTop();
         }}
         onJumpToSection={(sectionId) => scrollToElement(sectionId)}
+      />
+
+      {/* Interactive ContextGuard MVP Demonstration Player & Script Cue Sheet */}
+      <MvpDemoPresentationPlayer
+        isOpen={isMvpDemoOpen}
+        onClose={() => setIsMvpDemoOpen(false)}
+        onJumpToSection={(sectionId) => scrollToElement(sectionId)}
+        onRunDemoEvaluation={() => scrollToElement('interactive-demo')}
       />
     </div>
   );

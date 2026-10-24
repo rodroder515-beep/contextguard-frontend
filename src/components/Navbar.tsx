@@ -8,6 +8,8 @@ interface NavbarProps {
   isScrolled: boolean;
   onJumpToDemo: () => void;
   onJumpToArchitecture: () => void;
+  onOpenMvpDemo?: () => void;
+  isMvpDemoActive?: boolean;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -16,6 +18,8 @@ export const Navbar: React.FC<NavbarProps> = ({
   isScrolled,
   onJumpToDemo,
   onJumpToArchitecture,
+  onOpenMvpDemo,
+  isMvpDemoActive,
 }) => {
   const isDarkTheme = activeTab === 'terminal';
 
@@ -126,6 +130,23 @@ export const Navbar: React.FC<NavbarProps> = ({
               : 'bg-[#e8e6e0]/85 border-[#141413]/10'
           }`}
         >
+          {onOpenMvpDemo && (
+            <button
+              type="button"
+              onClick={onOpenMvpDemo}
+              className={`inline-flex items-center gap-1.5 px-3 py-1 sm:py-1.5 rounded-full text-[11px] sm:text-[12px] font-medium transition-colors duration-200 whitespace-nowrap shrink-0 cursor-pointer ${
+                isMvpDemoActive
+                  ? 'bg-[#d94e34] text-white shadow-xs'
+                  : isDarkTheme
+                  ? 'text-[#d99b16] hover:bg-white/10'
+                  : 'text-[#b45309] hover:bg-[#141413]/5'
+              }`}
+              title="Play 2:50 ContextGuard MVP Demonstration walkthrough"
+            >
+              <span className={`w-1.5 h-1.5 rounded-full ${isMvpDemoActive ? 'bg-white' : 'bg-[#d94e34]'} animate-pulse`} />
+              <span>MVP Demo</span>
+            </button>
+          )}
           <button
             type="button"
             onClick={onJumpToArchitecture}
