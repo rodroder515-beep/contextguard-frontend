@@ -151,21 +151,21 @@ export const InteractiveDemoSection: React.FC = () => {
         {/* Outer Dark Browser/System Frame matching 00:19-00:21 */}
         <div className="max-w-[1260px] mx-auto bg-[#1b1b19] p-2 sm:p-3 rounded-xs border border-white/15 shadow-[0_25px_70px_rgba(0,0,0,0.65)]">
           {/* Top Bar inside Dark Frame */}
-          <div className="flex items-center justify-between px-3 py-2 bg-[#141413] border-b border-white/10">
+          <div className="flex items-center justify-between px-3.5 py-2.5 bg-[#141413] border-b border-white/10">
             <div className="flex items-center gap-1.5">
-              <span className="w-2.5 h-2.5 rounded-full bg-white/20" />
-              <span className="w-2.5 h-2.5 rounded-full bg-white/20" />
-              <span className="w-2.5 h-2.5 rounded-full bg-white/20" />
+              <span className="w-2.5 h-2.5 rounded-full bg-[#d94e34]/70" title="Boundary Close" />
+              <span className="w-2.5 h-2.5 rounded-full bg-[#d99b16]/70" title="Boundary Minimize" />
+              <span className="w-2.5 h-2.5 rounded-full bg-[#6e9b26]/70" title="Boundary Expand" />
             </div>
 
             {/* Segmented Mode Switcher matching [ ANTIMETAL | PRODUCTION ] */}
-            <div className="flex items-center border border-white/15 p-0.5 bg-[#1c1c1a]">
+            <div className="flex items-center border border-white/15 p-0.5 bg-[#1c1c1a] rounded-xs">
               <button
                 type="button"
                 onClick={() => setViewMode('inspector')}
-                className={`px-3 py-0.5 font-mono-tech text-[10px] tracking-[0.14em] uppercase transition-colors cursor-pointer ${
+                className={`px-3 py-1 font-mono-tech text-[10px] tracking-[0.14em] uppercase transition-all rounded-xs cursor-pointer ${
                   viewMode === 'inspector'
-                    ? 'bg-[#f4f3ef] text-[#141413] font-medium'
+                    ? 'bg-[#f4f3ef] text-[#141413] font-semibold shadow-xs'
                     : 'text-[#a09f99] hover:text-white'
                 }`}
               >
@@ -174,9 +174,9 @@ export const InteractiveDemoSection: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setViewMode('payload-diff')}
-                className={`px-3 py-0.5 font-mono-tech text-[10px] tracking-[0.14em] uppercase transition-colors cursor-pointer ${
+                className={`px-3 py-1 font-mono-tech text-[10px] tracking-[0.14em] uppercase transition-all rounded-xs cursor-pointer ${
                   viewMode === 'payload-diff'
-                    ? 'bg-[#f4f3ef] text-[#141413] font-medium'
+                    ? 'bg-[#f4f3ef] text-[#141413] font-semibold shadow-xs'
                     : 'text-[#a09f99] hover:text-white'
                 }`}
               >
@@ -184,8 +184,9 @@ export const InteractiveDemoSection: React.FC = () => {
               </button>
             </div>
 
-            <div className="font-mono-tech text-[10px] tracking-[0.1em] text-[#a09f99] hidden sm:block">
-              BOUNDARY INSPECTOR
+            <div className="hidden sm:flex items-center gap-2 font-mono-tech text-[10px] tracking-[0.1em] text-[#a09f99]">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#6e9b26] animate-pulse" />
+              <span>LIVE EVALUATION WORKSPACE</span>
             </div>
           </div>
 
@@ -245,7 +246,7 @@ export const InteractiveDemoSection: React.FC = () => {
                 {/* 1. TASK RELEVANCE: Full-width top panel */}
                 <div
                   data-testid="panel-task-relevance"
-                  className="w-full bg-[#faf8f3] border border-[#141413]/12 rounded-md p-6 sm:p-7"
+                  className="w-full bg-[#faf8f3] border border-[#141413]/12 border-t-2 border-t-[#141413]/60 rounded-md p-6 sm:p-7 shadow-[0_2px_10px_rgba(20,20,19,0.03)]"
                 >
                   <div className="flex items-center justify-between gap-3">
                     <span className="font-mono-tech text-[10px] tracking-[0.14em] uppercase text-[#686762] whitespace-nowrap shrink-0">

@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
 import { Play, Pause, RotateCcw, ShieldAlert, CheckCircle2 } from 'lucide-react';
 
-export interface ProblemSectionProps {
-  onOpenMvpDemo?: () => void;
-}
-
-export const ProblemSection: React.FC<ProblemSectionProps> = ({ onOpenMvpDemo }) => {
+export const ProblemSection: React.FC = () => {
   const [isPlayingBriefing, setIsPlayingBriefing] = useState(false);
   const [briefingStep, setBriefingStep] = useState<0 | 1 | 2>(0);
   const [hoveredPoint, setHoveredPoint] = useState<number>(3);
@@ -74,22 +70,11 @@ export const ProblemSection: React.FC<ProblemSectionProps> = ({ onOpenMvpDemo })
                     </button>
                   </div>
 
-                  {/* Bottom Bar: 02:50 Pill on Left, CG Monogram on Right */}
+                  {/* Bottom Bar: 01:47 Pill on Left, CG Monogram on Right */}
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <span className="px-2.5 py-1 rounded-xs bg-white/12 backdrop-blur-xs font-mono-tech text-[11px] text-[#f4f3ef]">
-                        02:50
-                      </span>
-                      {onOpenMvpDemo && (
-                        <button
-                          type="button"
-                          onClick={onOpenMvpDemo}
-                          className="px-2.5 py-1 rounded-xs bg-[#d94e34]/30 hover:bg-[#d94e34]/60 border border-[#d94e34]/50 font-mono-tech text-[10px] text-[#f4f3ef] transition-colors cursor-pointer"
-                        >
-                          ▶ Launch MVP Demo Walkthrough
-                        </button>
-                      )}
-                    </div>
+                    <span className="px-2.5 py-1 rounded-xs bg-white/12 backdrop-blur-xs font-mono-tech text-[11px] text-[#f4f3ef]">
+                      01:47
+                    </span>
                     <span className="font-serif-editorial text-[18px] tracking-tight font-semibold text-[#f4f3ef]">
                       CG
                     </span>

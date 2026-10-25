@@ -1,19 +1,16 @@
 import React from 'react';
-import { Play } from 'lucide-react';
 import { HeroRadialNetwork } from './HeroRadialNetwork';
 
 interface HeroSectionProps {
   scrollProgress: number;
   onEvaluateClick: () => void;
   onExploreResearchClick: () => void;
-  onOpenMvpDemo?: () => void;
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({
   scrollProgress,
   onEvaluateClick,
   onExploreResearchClick,
-  onOpenMvpDemo,
 }) => {
   return (
     <section
@@ -38,7 +35,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </p>
 
             {/* Primary Pill CTA + Corner-Bracketed Secondary CTA matching 00:01-00:06 */}
-            <div className="mt-9 flex flex-wrap items-center gap-3 sm:gap-4">
+            <div className="mt-9 flex flex-wrap items-center gap-4 sm:gap-5">
               <button
                 type="button"
                 onClick={onEvaluateClick}
@@ -46,18 +43,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               >
                 Evaluate a prompt
               </button>
-
-              {onOpenMvpDemo && (
-                <button
-                  type="button"
-                  onClick={onOpenMvpDemo}
-                  className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#eae8e2] text-[#141413] border border-[#141413]/15 text-[13px] font-medium tracking-[-0.01em] hover:bg-white hover:border-[#141413]/30 transition-all duration-200 whitespace-nowrap shrink-0 cursor-pointer shadow-xs"
-                >
-                  <Play className="w-3.5 h-3.5 fill-[#d94e34] text-[#d94e34]" />
-                  <span>MVP Demo</span>
-                  <span className="font-mono-tech text-[10px] text-[#686762] ml-0.5">2:50</span>
-                </button>
-              )}
 
               <button
                 type="button"
